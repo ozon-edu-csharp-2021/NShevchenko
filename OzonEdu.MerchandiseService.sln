@@ -14,6 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C7CCC3B1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService", "src\OzonEdu.MerchandiseService\OzonEdu.MerchandiseService.csproj", "{9967D4E3-E3B6-458F-83AA-9A970DBA6136}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.HttpModels", "src\OzonEdu.MerchandiseService.HttpModels\OzonEdu.MerchandiseService.HttpModels.csproj", "{11BA3306-B590-44E0-BEC0-C5AC79244383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.HttpClients", "src\OzonEdu.MerchandiseService.HttpClients\OzonEdu.MerchandiseService.HttpClients.csproj", "{FAE9B307-05AA-49BD-928B-722E20D97B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Grpc", "src\OzonEdu.MerchandiseService.Grpc\OzonEdu.MerchandiseService.Grpc.csproj", "{CE0C832D-CC0A-4E92-8881-6213D1727077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,8 +34,23 @@ Global
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BA3306-B590-44E0-BEC0-C5AC79244383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BA3306-B590-44E0-BEC0-C5AC79244383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BA3306-B590-44E0-BEC0-C5AC79244383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BA3306-B590-44E0-BEC0-C5AC79244383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAE9B307-05AA-49BD-928B-722E20D97B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAE9B307-05AA-49BD-928B-722E20D97B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAE9B307-05AA-49BD-928B-722E20D97B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAE9B307-05AA-49BD-928B-722E20D97B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
+		{11BA3306-B590-44E0-BEC0-C5AC79244383} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
+		{FAE9B307-05AA-49BD-928B-722E20D97B18} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
+		{CE0C832D-CC0A-4E92-8881-6213D1727077} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 	EndGlobalSection
 EndGlobal
