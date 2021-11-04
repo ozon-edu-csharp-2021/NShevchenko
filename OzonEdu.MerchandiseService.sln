@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Grpc", "src\OzonEdu.MerchandiseService.Grpc\OzonEdu.MerchandiseService.Grpc.csproj", "{CE0C832D-CC0A-4E92-8881-6213D1727077}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Domain", "src\OzonEdu.MerchandiseService.Domain\OzonEdu.MerchandiseService.Domain.csproj", "{3D065E90-749D-4CDB-A638-A970EBC84629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Infrastructure", "src\OzonEdu.MerchandiseService.Infrastructure\OzonEdu.MerchandiseService.Infrastructure.csproj", "{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,11 +50,21 @@ Global
 		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0C832D-CC0A-4E92-8881-6213D1727077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D065E90-749D-4CDB-A638-A970EBC84629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D065E90-749D-4CDB-A638-A970EBC84629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D065E90-749D-4CDB-A638-A970EBC84629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D065E90-749D-4CDB-A638-A970EBC84629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 		{11BA3306-B590-44E0-BEC0-C5AC79244383} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 		{FAE9B307-05AA-49BD-928B-722E20D97B18} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 		{CE0C832D-CC0A-4E92-8881-6213D1727077} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
+		{3D065E90-749D-4CDB-A638-A970EBC84629} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
+		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 	EndGlobalSection
 EndGlobal

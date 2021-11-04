@@ -1,7 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OzonEdu.MerchandiseService.HttpModels;
+using OzonEdu.MerchandiseService.Infrastructure.Queries.MerchRequestAggregate;
 using OzonEdu.MerchandiseService.Models;
 using OzonEdu.MerchandiseService.Services.Interfaces;
 
@@ -13,7 +15,8 @@ namespace OzonEdu.MerchandiseService.Controllers.V1
     public class MerchandiseController : ControllerBase
     {
         private readonly IMerchandiseService _merchService;
-
+        private readonly IMediator _mediator;
+        
         public MerchandiseController(IMerchandiseService merchService)
         {
             _merchService = merchService;
@@ -23,10 +26,16 @@ namespace OzonEdu.MerchandiseService.Controllers.V1
         /// Информация о выданном мерче по сотруднику.
         /// </summary>
         [HttpGet("{id:long}")]
-        public async Task<ActionResult> GetByEmployee(long id, CancellationToken token)
+        public async Task<ActionResult<int>> GetByEmployee(long id, CancellationToken token)
         {
-            var skuList = await _merchService.GetByEmployee(id, token);
-            return Ok(skuList);
+            var query = new GetIssuedMerchByEmployeeQuery()
+            {
+                EmployeeId = id
+            };
+            
+            var result = await _mediator.Send(query, token);
+            
+            return result;
         }
 
         /// <summary>
