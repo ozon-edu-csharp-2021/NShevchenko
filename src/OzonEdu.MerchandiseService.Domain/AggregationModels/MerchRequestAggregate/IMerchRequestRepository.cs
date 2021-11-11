@@ -16,7 +16,8 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggreg
         /// <param name="employeeId">Идентификатор сотрудника</param>
         /// <param name="cancellationToken">Токен для отмены операции. <see cref="CancellationToken"/></param>
         /// <returns>Товарные позиции, выданные сотруднику</returns>
-        Task<List<SkuMerchItem>> GetIssuedMerchByEmployee(long employeeId, CancellationToken cancellationToken = default);
+        Task<List<SkuMerchItem>> GetIssuedMerchByEmployee(long employeeId,
+            CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Запрос выдачи сотруднику MerchPack
@@ -25,8 +26,9 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggreg
         /// <param name="merchPack">MerchPack для выдачи</param>
         /// <param name="cancellationToken">Токен для отмены операции. <see cref="CancellationToken"/></param>
         /// <returns>Список добавленных запросов Sku для для дальнейшей обработки</returns>
-        Task<List<MerchRequest>> RequestMerchPackByEmployee(long employeeId, MerchPack merchPack, CancellationToken cancellationToken = default);
-        
+        Task<List<MerchRequest>> RequestMerchPackByEmployee(long employeeId, MerchPack merchPack,
+            CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Запрос выдачи сотруднику Sku
         /// </summary>
@@ -34,6 +36,7 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggreg
         /// <param name="sku">Sku для выдачи</param>
         /// <param name="cancellationToken">Токен для отмены операции. <see cref="CancellationToken"/></param>
         /// <returns>Добавленный запрос Sku</returns>
-        Task<MerchRequest> RequestSkuByEmployee(long employeeId, Sku sku, CancellationToken cancellationToken = default);
+        Task<MerchRequest> RequestSkuByEmployee(long employeeId, Sku sku,
+            CancellationToken cancellationToken = default);
     }
 }

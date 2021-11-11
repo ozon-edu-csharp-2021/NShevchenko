@@ -19,13 +19,16 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Handlers.MerchRequestAggrega
         public async Task<int> Handle(CreateRequestMerchpackByEmployeeCommand request,
             CancellationToken cancellationToken)
         {
-            var stockInDb = await _merchRequestRepository.RequestMerchPackByEmployee(123,
-                new MerchPack(new MerchPackName("WelcomePack")), cancellationToken);
-            if (stockInDb is not null)
-                throw new Exception($"Stock item with sku 123 already exist");
+            var requestListInDb = await _merchRequestRepository.RequestMerchPackByEmployee(request.EmployeeId,
+                new MerchPack(new MerchPackName(request.MerchPackName)), cancellationToken);
+            if (requestListInDb is not null || requestListInDb.Count <= 0)
+                throw new Exception($"Request denied");
 
-            var newStockItem = new {Id = 123};
-            return newStockItem.Id;
+            // TODO запросить по каждому запросу наличие Sku на складе
+            // если есть оповестить сотрудника и пометить заявку выполненной
+            //  await _merchRequestRepository.UpdateAsync(requestInDb, RequestStatus.Done);
+
+            return requestListInDb.Count;
         }
     }
 }

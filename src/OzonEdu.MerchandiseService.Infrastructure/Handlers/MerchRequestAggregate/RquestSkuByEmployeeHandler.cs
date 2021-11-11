@@ -7,7 +7,7 @@ using OzonEdu.MerchandiseService.Infrastructure.Commands.CreateRequestSkuByEmplo
 
 namespace OzonEdu.MerchandiseService.Infrastructure.Handlers.MerchRequestAggregate
 {
-    public class RquestSkuByEmployeeHandler : IRequestHandler<CreateRequestSkuByEmployeeCommand, int>
+    public class RquestSkuByEmployeeHandler : IRequestHandler<CreateRequestSkuByEmployeeCommand>
     {
         private readonly IMerchRequestRepository _merchRequestRepository;
 
@@ -15,17 +15,21 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Handlers.MerchRequestAggrega
         {
             _merchRequestRepository = merchRequestRepository;
         }
-        
-        public async Task<int> Handle(CreateRequestSkuByEmployeeCommand request, CancellationToken cancellationToken)
+
+        public async Task<Unit> Handle(CreateRequestSkuByEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var stockInDb = await _merchRequestRepository.RequestSkuByEmployee(123, new Sku(123), cancellationToken);
-            if (stockInDb is not null)
-                throw new Exception($"Stock item with sku 123 already exist");
+            var requestInDb =
+                await _merchRequestRepository.RequestSkuByEmployee(request.EmployeeId, new Sku(request.Sku),
+                    cancellationToken);
+            if (requestInDb is null)
+                throw new Exception($"Request denied");
+            var issuedMerchList = await _merchRequestRepository.GetIssuedMerchByEmployee(request.EmployeeId);
+            // TODO проверить что сотруднику можно выдать мерч
+            // запросить по запросу наличие Sku на складе
+            // если есть оповестить сотрудника и пометить заявку выполненной
+            //  await _merchRequestRepository.UpdateAsync(requestInDb, RequestStatus.Done);
 
-            var newStockItem = new {Id = 123};
-
-            
-            return newStockItem.Id;
+            return Unit.Value;
         }
     }
 }

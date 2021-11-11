@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -16,26 +18,34 @@ namespace OzonEdu.MerchandiseService.Controllers.V1
     {
         private readonly IMerchandiseService _merchService;
         private readonly IMediator _mediator;
-        
-        public MerchandiseController(IMerchandiseService merchService)
+
+        public MerchandiseController(IMerchandiseService merchService, IMediator mediator)
         {
             _merchService = merchService;
+            _mediator = mediator;
         }
 
         /// <summary>
         /// Информация о выданном мерче по сотруднику.
         /// </summary>
         [HttpGet("{id:long}")]
-        public async Task<ActionResult<int>> GetByEmployee(long id, CancellationToken token)
+        public async Task<ActionResult<List<SkuPostViewModel>>> GetByEmployee(long id, CancellationToken token)
         {
             var query = new GetIssuedMerchByEmployeeQuery()
             {
                 EmployeeId = id
             };
-            
+
             var result = await _mediator.Send(query, token);
-            
-            return result;
+
+            return result.Select(x => new SkuPostViewModel
+            {
+                MerchItem = new MerchItemPostViewModel()
+                {
+                    ItemName = x.MerchPack.MerchPackName.Value,
+                    ItemProperty = null
+                }
+            }).ToList();
         }
 
         /// <summary>

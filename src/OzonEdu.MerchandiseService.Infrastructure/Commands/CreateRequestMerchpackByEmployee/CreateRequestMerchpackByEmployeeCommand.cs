@@ -4,6 +4,7 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Commands.CreateRequestMerchp
 {
     public class CreateRequestMerchpackByEmployeeCommand : IRequest<int>
     {
-        
+        public long EmployeeId;
+        public string MerchPackName;
     }
 }

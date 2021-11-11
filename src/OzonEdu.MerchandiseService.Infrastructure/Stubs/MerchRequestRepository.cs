@@ -10,6 +10,7 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
     public class MerchRequestRepository : IMerchRequestRepository
     {
         public IUnitOfWork UnitOfWork { get; }
+
         public Task<MerchRequest> CreateAsync(MerchRequest itemToCreate, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
@@ -25,17 +26,20 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
             throw new System.NotImplementedException();
         }
 
-        public Task<List<SkuMerchItem>> GetIssuedMerchByEmployee(long employeeId, CancellationToken cancellationToken = default)
+        public Task<List<SkuMerchItem>> GetIssuedMerchByEmployee(long employeeId,
+            CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<List<MerchRequest>> RequestMerchPackByEmployee(long employeeId, MerchPack merchPack, CancellationToken cancellationToken = default)
+        public Task<List<MerchRequest>> RequestMerchPackByEmployee(long employeeId, MerchPack merchPack,
+            CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<MerchRequest> RequestSkuByEmployee(long employeeId, Sku sku, CancellationToken cancellationToken = default)
+        public Task<MerchRequest> RequestSkuByEmployee(long employeeId, Sku sku,
+            CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }

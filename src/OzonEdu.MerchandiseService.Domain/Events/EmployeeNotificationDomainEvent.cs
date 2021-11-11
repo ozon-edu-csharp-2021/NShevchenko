@@ -3,7 +3,7 @@ using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
 
 namespace OzonEdu.MerchandiseService.Domain.Events
 {
-    public class EmployeeNotificationDomainEvent: INotification
+    public class EmployeeNotificationDomainEvent : INotification
     {
         public Sku StockItemSku { get; }
         public Employee Employee { get; }
@@ -14,5 +14,4 @@ namespace OzonEdu.MerchandiseService.Domain.Events
             Employee = employee;
         }
     }
-    
 }

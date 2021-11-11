@@ -5,7 +5,7 @@ using OzonEdu.MerchandiseService.Domain.Events;
 
 namespace OzonEdu.MerchandiseService.Infrastructure.Handlers.DomainEvent
 {
-    public class EmployeeNotificationDomainEventHandler : INotificationHandler<EmployeeNotificationDomainEvent> 
+    public class EmployeeNotificationDomainEventHandler : INotificationHandler<EmployeeNotificationDomainEvent>
     {
         public Task Handle(EmployeeNotificationDomainEvent notification, CancellationToken cancellationToken)
         {
