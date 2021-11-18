@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace OzonEdu.StockApi.Migrator.Migrations
+namespace OzonEdu.MerchandiseService.Migrator.Migrations
 {
     [Migration(7, TransactionBehavior.None)]
     public class RequestEmployeeIdx: ForwardOnlyMigration 
