@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
-using OzonEdu.MerchandiseService.Domain.Contracts;
+using Npgsql;
+using OzonEdu.MerchandiseService.Infrastructure.Repositories.Infrastructure.Interfaces;
 
-namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
+namespace OzonEdu.MerchandiseService.Infrastructure.Repositories.Implementation
 {
     public class MerchRequestRepository : IMerchRequestRepository
     {
-        public IUnitOfWork UnitOfWork { get; }
+        private readonly IDbConnectionFactory<NpgsqlConnection> _dbConnectionFactory;
 
+        public MerchRequestRepository(IDbConnectionFactory<NpgsqlConnection> dbConnectionFactory)
+        {
+            _dbConnectionFactory = dbConnectionFactory;
+        }
+        
         public Task<MerchRequest> CreateAsync(MerchRequest itemToCreate, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();

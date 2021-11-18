@@ -8,6 +8,7 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 	Dockerfile = Dockerfile
 	docker-compose.yml = docker-compose.yml
+	entrypoint.sh = entrypoint.sh
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C7CCC3B1-4223-412A-BC2B-CFCC14F9CF1B}"
@@ -25,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Infrastructure", "src\OzonEdu.MerchandiseService.Infrastructure\OzonEdu.MerchandiseService.Infrastructure.csproj", "{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Domain.Tests", "tests\OzonEdu.MerchandiseService.Domain.Tests\OzonEdu.MerchandiseService.Domain.Tests.csproj", "{975D2B91-C32D-4801-A7FF-00F0D4C2A100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Migrator", "src\OzonEdu.MerchandiseService.Migrator\OzonEdu.MerchandiseService.Migrator.csproj", "{7FBF8CA3-6B8A-4E18-A310-4888666258ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +67,10 @@ Global
 		{975D2B91-C32D-4801-A7FF-00F0D4C2A100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{975D2B91-C32D-4801-A7FF-00F0D4C2A100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{975D2B91-C32D-4801-A7FF-00F0D4C2A100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBF8CA3-6B8A-4E18-A310-4888666258ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBF8CA3-6B8A-4E18-A310-4888666258ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBF8CA3-6B8A-4E18-A310-4888666258ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBF8CA3-6B8A-4E18-A310-4888666258ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9967D4E3-E3B6-458F-83AA-9A970DBA6136} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
@@ -73,5 +80,6 @@ Global
 		{3D065E90-749D-4CDB-A638-A970EBC84629} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 		{F8A1B94A-1FF4-4C1F-A8A0-96D5FA924658} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 		{975D2B91-C32D-4801-A7FF-00F0D4C2A100} = {C7CCC3B1-4223-412A-BC2B-CFCC14F9CF1B}
+		{7FBF8CA3-6B8A-4E18-A310-4888666258ED} = {C0E96226-216E-4541-BC6E-B93AB00ED53F}
 	EndGlobalSection
 EndGlobal
