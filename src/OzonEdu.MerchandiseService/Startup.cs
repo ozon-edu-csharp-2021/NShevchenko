@@ -1,43 +1,55 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
+using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
+using OzonEdu.MerchandiseService.Domain.Contracts;
 using OzonEdu.MerchandiseService.GrpcServices;
-using OzonEdu.MerchandiseService.Infrastructure.Interceptors;
-using OzonEdu.MerchandiseService.Services.Interfaces;
+using OzonEdu.MerchandiseService.Infrastructure.Configuration;
+using OzonEdu.MerchandiseService.Infrastructure.Repositories.Implementation;
+using OzonEdu.MerchandiseService.Infrastructure.Repositories.Infrastructure;
+using OzonEdu.MerchandiseService.Infrastructure.Repositories.Infrastructure.Interfaces;
 
 namespace OzonEdu.MerchandiseService
 {
     public class Startup
     {
-        private readonly IConfiguration _configuration;
-
-        public IWebHostEnvironment WebHostEnvironment { get; }
-
-        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
+        public IConfiguration Configuration { get; }
+        
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            WebHostEnvironment = webHostEnvironment;
         }
-
-        public IConfiguration Configuration { get; set; }
-
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IMerchandiseService, Services.MerchandiseService>();
-            services.AddInfrastructureServices();
-
-            services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptor>());
+            AddMediator(services);
+            AddDatabaseComponents(services);
+            AddRepositories(services);
         }
 
-        public void Configure(IApplicationBuilder app)
+        private static void AddMediator(IServiceCollection services)
         {
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGrpcService<MerchandiseServiceGrpcService>();
-                endpoints.MapControllers();
-            });
+            services.AddMediatR(typeof(Startup), typeof(DatabaseConnectionOptions));
+        }
+
+        private void AddDatabaseComponents(IServiceCollection services)
+        {
+            services.Configure<DatabaseConnectionOptions>(Configuration.GetSection(nameof(DatabaseConnectionOptions)));
+            services.AddScoped<IDbConnectionFactory<NpgsqlConnection>, NpgsqlConnectionFactory>();
+        }
+
+        private static void AddRepositories(IServiceCollection services)
+        {
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+            services.AddScoped<IMerchRequestRepository, MerchRequestRepository>();
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            app.UseEndpoints(endpoints => endpoints.MapGrpcService<MerchandiseServiceGrpcService>());
         }
     }
 }
